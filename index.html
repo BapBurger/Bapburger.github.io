@@ -5,153 +5,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hyeokju Ko</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
-        <div class="profile-photo">
-            
-<img src="profile.jpg" alt="프로필 사진">
-            
-        </div>
-        <h1>고혁주 (Hyeokju Ko)</h1>
-        <p class="job-title">HCI Researcher | B.S. Candidate in Industrial Engineering</p>
-        <div class="contact-info">
-            <a href="mailto:stevenko0329@gmail.com">stevenko0329@gmail.com</a> |
-            <a href="tel:010-4134-6905">010-4134-6905</a> |
-            <a href="https://github.com/BapBurger" target="_blank">GitHub</a> |
-            <a href="https://drive.google.com/file/d/1n-IZfckwajrkHSRGnqMQZLx2A0AJ0ffM/view?usp=sharing" target="_blank">CV</a>
+        <div class="header-content">
+            <div class="profile-photo">
+                <img src="profile.jpg" alt="프로필 사진">
+            </div>
+            <div class="profile-info">
+                <h1>고혁주 (HyeokJu Ko)</h1>
+                <p class="job-title">HCI Researcher | B.S. Candidate in Industrial Engineering</p>
+                <div class="contact-info">
+                    <a href="mailto:stevenko0329@gmail.com">stevenko0329@gmail.com</a> |
+                    <a href="https://github.com/BapBurger" target="_blank">GitHub</a> |
+                    <a href="https://drive.google.com/file/d/1n-IZfckwajrkHSRGnqMQZLx2A0AJ0ffM/view?usp=sharing" target="_blank">CV</a>
+                </div>
+            </div>
         </div>
     </header>
 
+    <nav class="navbar">
+        <button class="tab-link active" onclick="openTab(event, 'about')">About</button>
+        <button class="tab-link" onclick="openTab(event, 'education')">Education</button>
+        <button class="tab-link" onclick="openTab(event, 'publications')">Publications</button>
+        <button class="tab-link" onclick="openTab(event, 'research')">Research</button>
+        <button class="tab-link" onclick="openTab(event, 'projects')">Projects</button>
+        <button class="tab-link" onclick="openTab(event, 'skills')">Skills</button>
+        <button class="tab-link" onclick="openTab(event, 'interests')">Interests</button>
+        <button class="tab-link" onclick="openTab(event, 'courses')">Coursework</button>
+    </nav>
+
     <main class="container">
         
-        <section class="about">
+        <div id="about" class="tab-content" style="display: block;">
             <h2>소개 (About)</h2>
             <p>
                 서울과학기술대학교 산업공학과에 재학 중인 학부 연구생입니다. 
                 HCI(Human-Computer Interaction), 특히 MR/VR 환경에서의 Multimodal Interaction과 Human Factor에 깊은 관심을 가지고 있습니다.
                 저는 기술과 사람을 연결하는 가치 있는 연구를 이어가고 싶습니다.
             </p>
-        </section>
+        </div>
 
-        <section class="education">
+        <div id="education" class="tab-content">
             <h2>학력 (Education)</h2>
             <div class="edu-entry">
-                <h3>서울과학기술대학교 (Seoul National University of Science and Technology)</h3>
-                <p class="university">산업공학과 산업정보시스템전공 학사 | 2021. 03. – 2027. 02. (예정)</p>
+                <h3>서울과학기술대학교 (SeoulTech)</h3>
+                <p class="meta-info">산업공학과 산업정보시스템전공 학사 | 2021. 03. – 2027. 02. (예정)</p>
                 <ul>
-                    <li><b>Overall GPA:</b> 3.79 / 4.50</li>
+                    <li><b>Overall GPA:</b> 3.82 / 4.50</li>
                 </ul>
-                
             </div>
-        </section>
+        </div>
         
-        <section class="publications">
+        <div id="publications" class="tab-content">
             <h2>참여 논문 및 포스터 (Publications & Posters)</h2>
             <div class="publication-grid" id="publication-list">
-                
-            </div>
-        </section>
+                </div>
+        </div>
 
-        <section class="research">
+        <div id="research" class="tab-content">
             <h2>연구 경험 (Research Experience)</h2>
             <div class="job-entry">
                 <h3>학부 연구생 (Undergraduate Researcher)</h3>
-                <p class="company">Interaction LAB (Advisor: Prof. Jin-Woo Jeong) | SeoulTech | 2025. 02. – Present</p>
+                <p class="meta-info">Interaction LAB (Advisor: Prof. Jin-Woo Jeong) | SeoulTech | Feb 2025 – Dec 2025</p>
                 
-                <h4>CHI 2026 (Co-1st Author) : "Beyond the Lens..."</h4>
-                <ul>
-                    <li>Study 1 및 Study 2 실험 프로토콜 설계</li>
-                    <li>Pass-through MR 환경용 실험 애플리케이션 개발 (JavaScript, HTML, CSS 활용)</li>
-                    <li>Study 1 전체 정량 데이터 통계 분석 및 Study 2 NASA-TLX 데이터 전처리 및 분석 수행</li>
-                    <li>논문 전반적인 TA (Thematic Analysis, 정성 데이터) 참여</li>
-                    <li>Study 1 전체, Related Work, Conclusion 등 논문 주요 섹션 작성</li>
-                </ul>
+                <div class="research-item">
+                    <h4>CHI 2026 (Co-1st Author) : "Beyond the Lens..."</h4>
+                    <ul>
+                        <li>Study 1 및 Study 2 실험 프로토콜 설계</li>
+                        <li>Pass-through MR 환경용 실험 애플리케이션 개발 (JavaScript, HTML, CSS 활용)</li>
+                        <li>Study 1 정량 데이터 분석 및 Study 2 NASA-TLX 데이터 전처리</li>
+                        <li>논문 전반적인 TA (Thematic Analysis) 참여 및 주요 섹션 작성</li>
+                    </ul>
+                </div>
 
-                <h4>KSC 2025 (Co-1st Author): "Effects of Different Lying-Down Postures..."</h4>
-                <ul>
-                    <li>3D 조작 성능 측정을 위한 Fitts' Law 태스크 프로그램 개발 (Unity (C#) 기반)</li>
-                    <li>실험 데이터 전처리 및 분석 수행</li>
-                    <li>논문의 '실험 과정' 및 '실험 결과' 섹션 작성</li>
-                </ul>
+                <div class="research-item">
+                    <h4>KSC 2025 (Co-1st Author): "Effects of Different Lying-Down Postures..."</h4>
+                    <ul>
+                        <li>3D 조작 성능 측정을 위한 Fitts' Law 태스크 프로그램 개발 (Unity C#)</li>
+                        <li>실험 데이터 전처리 및 분석, 논문 작성 참여</li>
+                    </ul>
+                </div>
             </div>
-        </section>
+        </div>
         
-        <section class="projects">
-            <h2>주요 프로젝트 (Selected Technical Projects)</h2>
+        <div id="projects" class="tab-content">
+            <h2>주요 프로젝트 (Selected Projects)</h2>
             <div class="project-grid" id="project-list">
-                
-            </div>
-        </section>
+                </div>
+        </div>
 
-        <section class="skills">
+        <div id="skills" class="tab-content">
             <h2>기술 역량 (Technical Skills)</h2>
             <div class="skill-categories">
                 <div class="skill-group">
                     <h3>Programming & Data</h3>
                     <ul>
-                        <li>Python</li>
-                        <li>R</li>
-                        <li>C</li>
-                        <li>JavaScript</li>
-                        <li>HTML/CSS</li>
-                        <li>Unity (C#)</li>
+                        <li>Python</li><li>R</li><li>C</li><li>JavaScript</li>
+                        <li>HTML/CSS</li><li>Unity (C#)</li>
                     </ul>
                 </div>
                 <div class="skill-group">
                     <h3>XR Tools</h3>
-                    <ul>
-                        <li>Meta Quest 3</li>
-                        <li>VIVE Focus Vision</li>
-                    </ul>
+                    <ul><li>Meta Quest 3</li><li>VIVE Focus Vision</li></ul>
                 </div>
                 <div class="skill-group">
-                    <h3>Systems & Hardware</h3>
-                    <ul>
-                        <li>Linux (Ubuntu)</li>
-                        <li>Raspberry Pi 3</li>
-                    </ul>
+                    <h3>Systems</h3>
+                    <ul><li>Linux (Ubuntu)</li><li>Raspberry Pi 3</li></ul>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section class="interests">
+        <div id="interests" class="tab-content">
             <h2>관심 연구 분야 (Research Interests)</h2>
             <div class="interest-tags">
-                <span>Human-Computer Interaction</span>
-                <span>Multimodal Interaction (Gaze, Haptics)</span>
+                <span>HCI</span>
+                <span>Multimodal Interaction</span>
                 <span>Human Factors in XR</span>
-                <span>Generative AI in XR Environments</span>
+                <span>Generative AI in XR</span>
             </div>
-        </section>
+        </div>
 
-        
-        <section class="courses">
+        <div id="courses" class="tab-content">
             <h2>주요 수강 과목 (Relevant Coursework)</h2>
             <div class="course-grid">
-                <ul>
-                    <li><b>CS / Programming (A-Grade Core)</b></li>
-                    <li>웹프로그래밍 (A0)</li>
-                    <li>프로그래밍언어 (A0)</li>
-                    <li>파이썬프로그래밍 (A0)</li>
-                    <li>Computational Thinking (A0)</li>
-                </ul>
-                <ul>
-                    <li><b>AI / Data / HCI</b></li>
-                    <li>디자인리서치 (B+)</li>
-                    <li>데이터마이닝 (B+)</li>
-                    <li>데이터마이닝입문 (B+)</li>
-                    <li>산업공학통계 (B+)</li>
-                </ul>
-                <ul>
-                    <li><b>Math Foundations</b></li>
-                    <li>선형대수학 (A0)</li>
-                    <li>공학수학 (A0)</li>
-                    <li>미분적분학(1) (A0)</li>
-                </ul>
+                <div>
+                    <h4>CS / Systems</h4>
+                    <ul>
+                        <li>컴퓨터시스템 (A+)</li> <li>웹프로그래밍 (A0)</li>
+                        <li>프로그래밍언어 (A0)</li>
+                        <li>파이썬프로그래밍 (A0)</li>
+                        <li>Computational Thinking (A0)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>HCI / AI & Data</h4>
+                    <ul>
+                        <li>HCI (A+)</li> <li>인공지능개론 (A0)</li> <li>딥러닝 (B+)</li> <li>디자인리서치 (B+)</li>
+                        <li>데이터마이닝 (B+)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Math & IE Core</h4>
+                    <ul>
+                        <li>경제성평가론 (A0)</li> <li>선형대수학 (A0)</li>
+                        <li>공학수학 (A0)</li>
+                        <li>미분적분학 (A0)</li>
+                        <li>경영과학 (B+)</li> </ul>
+                </div>
             </div>
-        </section>
+        </div>
 
     </main>
 
