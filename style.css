@@ -1,12 +1,14 @@
 /* 기본 설정 */
 body {
     font-family: 'Noto Sans KR', sans-serif;
-    line-height: 1.5; /* 줄 간격 축소 */
+    line-height: 1.5;
+    /* 줄 간격 축소 */
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa; 
+    background-color: #f8f9fa;
     color: #333;
-    font-size: 15px; /* 전체 폰트 사이즈 축소 */
+    font-size: 15px;
+    /* 전체 폰트 사이즈 축소 */
 }
 
 /* 컨테이너 */
@@ -14,22 +16,35 @@ body {
     max-width: 850px;
     margin: 20px auto;
     padding: 30px;
-    background-color: #fff; 
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    min-height: 400px; /* 탭 전환 시 높이 덜컹거림 방지 */
+    min-height: 400px;
+    /* 탭 전환 시 높이 덜컹거림 방지 */
 }
 
-a { color: #007bff; text-decoration: none; }
-a:hover { text-decoration: underline; }
-ul { list-style: none; padding: 0; margin: 0; }
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
 /* 헤더 (콤팩트하게 수정) */
 .header {
-    background-color: #2c5038; 
+    background-color: #2c5038;
     color: #fff;
-    padding: 20px 0; /* 패딩 축소 */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px 0;
+    /* 패딩 축소 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .header-content {
@@ -43,27 +58,96 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 .profile-photo {
-    width: 110px;        /* 너비를 약간 키움 */
-    height: 140px;       /* 증명사진 비율(3:4)에 맞춰 높이 설정 (원본 비율 유지) */
-    border-radius: 5px;  /* 완전 직각보다는 살짝 둥근 모서리가 보기에 좋습니다 (원하면 0으로 변경) */
+    width: 110px;
+    /* 너비를 약간 키움 */
+    height: 140px;
+    /* 증명사진 비율(3:4)에 맞춰 높이 설정 (원본 비율 유지) */
+    border-radius: 5px;
+    /* 완전 직각보다는 살짝 둥근 모서리가 보기에 좋습니다 (원하면 0으로 변경) */
     overflow: hidden;
     border: 3px solid #fff;
     flex-shrink: 0;
-    background-color: #ddd; 
+    background-color: #ddd;
+    position: relative;
+    /* 눈 위치 잡기 위한 기준점 */
+}
+
+/* 눈알 스티커 스타일 */
+.eye {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    z-index: 10;
+    /* 초기 위치 (자바스크립트로 조정 가능하거나 여기서 고정) */
+    top: 55px;
+
+    /* 입체감 및 그림자 추가 (스티커 느낌) */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    /* 동공이 눈 밖으로 나가지 않도록 하고, 반사광이 잘리도록 함 */
+}
+
+/* 눈알 위의 투명한 막 (반사광) 효과 */
+.eye::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* 빛 반사를 테두리(왼쪽 상단) 쪽에만 집중시켜 동공을 가리지 않도록 수정 */
+    background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0) 45%);
+    z-index: 20;
+    /* 동공보다 위에 오도록 설정 */
+    pointer-events: none;
+    /* 클릭 이벤트가 통과되도록 함 */
+}
+
+#eye-left {
+    left: 28px;
+}
+
+#eye-right {
+    right: 28px;
+}
+
+.pupil {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.1s ease, height 0.1s ease;
+    /* 부드러운 크기 변화 */
+}
+
+.pupil.dilated {
+    width: 18px;
+    /* 커진 크기 */
+    height: 18px;
 }
 
 /* 이미지 꽉 차게 설정 */
-.profile-photo img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.profile-info { text-align: left; }
+.profile-info {
+    text-align: left;
+}
 
 .header h1 {
     margin: 0 0 5px 0;
-    font-size: 1.8em; /* 이름 크기 축소 */
+    font-size: 1.8em;
+    /* 이름 크기 축소 */
     font-weight: 700;
 }
 
@@ -74,15 +158,23 @@ ul { list-style: none; padding: 0; margin: 0; }
     color: #bdc3c7;
 }
 
-.header .contact-info { margin-top: 8px; font-size: 0.85em; }
-.header .contact-info a { color: #fff; margin-right: 10px; }
+.header .contact-info {
+    margin-top: 8px;
+    font-size: 0.85em;
+}
+
+.header .contact-info a {
+    color: #fff;
+    margin-right: 10px;
+}
 
 /* 네비게이션 (탭 메뉴) 스타일 */
 .navbar {
     background-color: #fff;
     border-bottom: 1px solid #ddd;
     text-align: center;
-    position: sticky; /* 스크롤 내려도 상단에 붙게 하려면 사용 */
+    position: sticky;
+    /* 스크롤 내려도 상단에 붙게 하려면 사용 */
     top: 0;
     z-index: 100;
     padding: 0 10px;
@@ -102,12 +194,32 @@ ul { list-style: none; padding: 0; margin: 0; }
     border-bottom: 3px solid transparent;
 }
 
-.navbar button:hover { color: #007bff; background-color: #f1f1f1; }
-.navbar button.active { color: #007bff; border-bottom: 3px solid #007bff; font-weight: 700; }
+.navbar button:hover {
+    color: #007bff;
+    background-color: #f1f1f1;
+}
+
+.navbar button.active {
+    color: #007bff;
+    border-bottom: 3px solid #007bff;
+    font-weight: 700;
+}
 
 /* 탭 콘텐츠 숨기기/보이기 로직 */
-.tab-content { display: none; animation: fadeEffect 0.4s; }
-@keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
+.tab-content {
+    display: none;
+    animation: fadeEffect 0.4s;
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
 
 /* 섹션 공통 스타일 (박스 테두리 제거) */
 h2 {
@@ -120,51 +232,207 @@ h2 {
 }
 
 /* 학력 */
-.edu-entry h3 { margin: 0; font-size: 1.2em; color: #333; }
-.edu-entry .meta-info { font-size: 0.9em; color: #777; margin-bottom: 10px; }
-.edu-entry ul li { margin-left: 15px; list-style: disc; font-size: 0.95em; color: #555; }
+.edu-entry h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.edu-entry .meta-info {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.edu-entry ul li {
+    margin-left: 15px;
+    list-style: disc;
+    font-size: 0.95em;
+    color: #555;
+}
 
 /* 연구 경험 & 프로젝트 */
-.job-entry h3, .project-card h3 { margin: 0 0 5px 0; font-size: 1.2em; color: #333; }
-.job-entry .meta-info { font-size: 0.9em; color: #777; margin-bottom: 20px; font-style: italic; }
-.research-item h4 { margin: 15px 0 5px 0; font-size: 1.05em; color: #007bff; }
-.research-item ul li, .project-card li { margin-left: 15px; list-style: disc; margin-bottom: 4px; font-size: 0.95em; color: #555; }
+.job-entry h3,
+.project-card h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.job-entry .meta-info {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.research-item h4 {
+    margin: 15px 0 5px 0;
+    font-size: 1.05em;
+    color: #007bff;
+}
+
+.research-item ul li,
+.project-card li {
+    margin-left: 15px;
+    list-style: disc;
+    margin-bottom: 4px;
+    font-size: 0.95em;
+    color: #555;
+}
 
 /* 프로젝트 카드 (콤팩트) */
-.project-grid, .publication-grid { display: grid; gap: 15px; }
-.project-card, .publication-card {
-    background: #f9f9f9; padding: 15px; border-radius: 6px; border: 1px solid #eee;
+.project-grid,
+.publication-grid {
+    display: grid;
+    gap: 15px;
 }
-.project-card .tech-stack { font-size: 0.85em; color: #007bff; margin-bottom: 8px; display: block;}
-.project-card .subtitle { font-size: 0.9em; color: #666; font-style: italic; margin-bottom: 10px; }
+
+.project-card,
+.publication-card {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+.project-card .tech-stack {
+    font-size: 0.85em;
+    color: #007bff;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.project-card .subtitle {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 10px;
+}
 
 /* 논문 상태 배지 */
-.publication-card h3 { font-size: 1.1em; margin: 0 0 5px 0; }
-.publication-card p { font-size: 0.9em; color: #666; margin-bottom: 8px; }
-.publication-card .status { font-size: 0.8em; padding: 3px 8px; border-radius: 4px; background: #eee; color: #555; font-weight: bold; }
-.publication-card .status.accepted { background: #e9f7ec; color: #28a745; }
+.publication-card h3 {
+    font-size: 1.1em;
+    margin: 0 0 5px 0;
+}
+
+.publication-card p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.publication-card .status {
+    font-size: 0.8em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: #eee;
+    color: #555;
+    font-weight: bold;
+}
+
+.publication-card .status.accepted {
+    background: #e9f7ec;
+    color: #28a745;
+}
 
 /* 스킬 (가로 배열 강화) */
-.skill-categories { display: flex; flex-wrap: wrap; gap: 15px; }
-.skill-group { flex: 1; min-width: 200px; background: #fafafa; padding: 15px; border-radius: 6px; border: 1px solid #eee; }
-.skill-group h3 { margin-top: 0; font-size: 1em; color: #007bff; margin-bottom: 10px; }
-.skill-group ul li { display: inline-block; background: #fff; border: 1px solid #ddd; padding: 2px 8px; border-radius: 4px; font-size: 0.85em; margin: 2px; }
+.skill-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skill-group {
+    flex: 1;
+    min-width: 200px;
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #eee;
+}
+
+.skill-group h3 {
+    margin-top: 0;
+    font-size: 1em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.skill-group ul li {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    margin: 2px;
+}
 
 /* 관심분야 태그 */
-.interest-tags span { display: inline-block; background: #2c3e50; color: #fff; padding: 5px 12px; margin: 4px; border-radius: 15px; font-size: 0.85em; }
+.interest-tags span {
+    display: inline-block;
+    background: #2c3e50;
+    color: #fff;
+    padding: 5px 12px;
+    margin: 4px;
+    border-radius: 15px;
+    font-size: 0.85em;
+}
 
 /* 수강과목 그리드 */
-.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-.course-grid h4 { margin: 0 0 10px 0; font-size: 1em; color: #333; border-bottom: 1px solid #ddd; padding-bottom: 5px;}
-.course-grid ul li { background: #f9f9f9; margin-bottom: 4px; padding: 4px 8px; font-size: 0.85em; border-radius: 3px; color: #555; }
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.course-grid h4 {
+    margin: 0 0 10px 0;
+    font-size: 1em;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.course-grid ul li {
+    background: #f9f9f9;
+    margin-bottom: 4px;
+    padding: 4px 8px;
+    font-size: 0.85em;
+    border-radius: 3px;
+    color: #555;
+}
 
 /* 푸터 */
-.footer { text-align: center; padding: 15px; margin-top: 20px; font-size: 0.8em; color: #888; border-top: 1px solid #eee;}
+.footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #888;
+    border-top: 1px solid #eee;
+}
 
 /* 반응형 (모바일) */
 @media (max-width: 768px) {
-    .header-content { flex-direction: column; text-align: center; }
-    .profile-info { text-align: center; }
-    .navbar { overflow-x: auto; white-space: nowrap; display: flex; } /* 모바일에서 가로 스크롤 메뉴 */
-    .navbar button { flex: 0 0 auto; }
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-info {
+        text-align: center;
+    }
+
+    .navbar {
+        overflow-x: auto;
+        white-space: nowrap;
+        display: flex;
+    }
+
+    /* 모바일에서 가로 스크롤 메뉴 */
+    .navbar button {
+        flex: 0 0 auto;
+    }
 }

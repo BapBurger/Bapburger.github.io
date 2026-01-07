@@ -20,9 +20,9 @@ function openTab(evt, tabName) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // --- [데이터 로딩 부분] ---
-    
+
     // 1. 논문 데이터
     const publications = [
         {
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const publicationListDiv = document.getElementById('publication-list');
-    
+
     // 안전장치: 해당 ID가 존재할 때만 실행
     if (publicationListDiv) {
         publications.forEach(pub => {
@@ -105,9 +105,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. 프로필 사진 클릭 이벤트 (선택사항)
     const profilePhoto = document.querySelector('.profile-photo');
-    if(profilePhoto) {
+    if (profilePhoto) {
         profilePhoto.addEventListener('click', () => {
             // alert('안녕하세요!'); // 필요 없으면 주석 처리
         });
     }
+
+    // 4. 눈알 스티커 효과 (마우스 따라다니기)
+    document.addEventListener('mousemove', (e) => {
+        const eyes = document.querySelectorAll('.eye');
+
+        eyes.forEach(eye => {
+            const pupil = eye.querySelector('.pupil');
+            if (!pupil) return;
+
+            // 눈의 중심 좌표 계산
+            const eyeRect = eye.getBoundingClientRect();
+            const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+            const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+
+            // 마우스와 눈 중심 사이의 각도 계산
+            const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
+
+            // 눈동자가 이동할 거리 계산 (눈 크기 내로 제한)
+            const maxDistance = 6; // 눈동자가 움직일 수 있는 최대 반경
+            const distance = Math.min(maxDistance, Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY));
+
+            // 눈동자 위치 업데이트
+            const pupilX = Math.cos(angle) * distance;
+            const pupilY = Math.sin(angle) * distance;
+
+            // transform을 사용하여 눈동자 이동
+            pupil.style.transform = `translate(-50%, -50%) translate(${pupilX}px, ${pupilY}px)`;
+        });
+    });
+
+    // 5. 클릭 시 동공 확장 효과
+    const handleMouseDown = () => {
+        document.querySelectorAll('.pupil').forEach(pupil => {
+            pupil.classList.add('dilated');
+        });
+    };
+
+    const handleMouseUp = () => {
+        document.querySelectorAll('.pupil').forEach(pupil => {
+            pupil.classList.remove('dilated');
+        });
+    };
+
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
 });

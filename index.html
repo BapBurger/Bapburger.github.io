@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hyeokju Ko</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header class="header">
         <div class="header-content">
             <div class="profile-photo">
                 <img src="profile.jpg" alt="프로필 사진">
+                <div class="eye" id="eye-left">
+                    <div class="pupil"></div>
+                </div>
+                <div class="eye" id="eye-right">
+                    <div class="pupil"></div>
+                </div>
             </div>
             <div class="profile-info">
                 <h1>고혁주 (HyeokJu Ko)</h1>
@@ -19,7 +28,8 @@
                 <div class="contact-info">
                     <a href="mailto:stevenko0329@gmail.com">stevenko0329@gmail.com</a> |
                     <a href="https://github.com/BapBurger" target="_blank">GitHub</a> |
-                    <a href="https://drive.google.com/file/d/1n-IZfckwajrkHSRGnqMQZLx2A0AJ0ffM/view?usp=sharing" target="_blank">CV</a>
+                    <a href="https://drive.google.com/file/d/1n-IZfckwajrkHSRGnqMQZLx2A0AJ0ffM/view?usp=sharing"
+                        target="_blank">CV</a>
                 </div>
             </div>
         </div>
@@ -37,11 +47,11 @@
     </nav>
 
     <main class="container">
-        
+
         <div id="about" class="tab-content" style="display: block;">
             <h2>소개 (About)</h2>
             <p>
-                서울과학기술대학교 산업공학과에 재학 중인 학부 연구생입니다. 
+                서울과학기술대학교 산업공학과에 재학 중인 학부 연구생입니다.
                 HCI(Human-Computer Interaction), 특히 MR/VR 환경에서의 Multimodal Interaction과 Human Factor에 깊은 관심을 가지고 있습니다.
                 저는 기술과 사람을 연결하는 가치 있는 연구를 이어가고 싶습니다.
             </p>
@@ -57,19 +67,20 @@
                 </ul>
             </div>
         </div>
-        
+
         <div id="publications" class="tab-content">
             <h2>참여 논문 및 포스터 (Publications & Posters)</h2>
             <div class="publication-grid" id="publication-list">
-                </div>
+            </div>
         </div>
 
         <div id="research" class="tab-content">
             <h2>연구 경험 (Research Experience)</h2>
             <div class="job-entry">
                 <h3>학부 연구생 (Undergraduate Researcher)</h3>
-                <p class="meta-info">Interaction LAB (Advisor: Prof. Jin-Woo Jeong) | SeoulTech | Feb 2025 – Dec 2025</p>
-                
+                <p class="meta-info">Interaction LAB (Advisor: Prof. Jin-Woo Jeong) | SeoulTech | Feb 2025 – Dec 2025
+                </p>
+
                 <div class="research-item">
                     <h4>CHI 2026 (Co-1st Author) : "Beyond the Lens..."</h4>
                     <ul>
@@ -89,11 +100,11 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="projects" class="tab-content">
             <h2>주요 프로젝트 (Selected Projects)</h2>
             <div class="project-grid" id="project-list">
-                </div>
+            </div>
         </div>
 
         <div id="skills" class="tab-content">
@@ -102,17 +113,27 @@
                 <div class="skill-group">
                     <h3>Programming & Data</h3>
                     <ul>
-                        <li>Python</li><li>R</li><li>C</li><li>JavaScript</li>
-                        <li>HTML/CSS</li><li>Unity (C#)</li>
+                        <li>Python</li>
+                        <li>R</li>
+                        <li>C</li>
+                        <li>JavaScript</li>
+                        <li>HTML/CSS</li>
+                        <li>Unity (C#)</li>
                     </ul>
                 </div>
                 <div class="skill-group">
                     <h3>XR Tools</h3>
-                    <ul><li>Meta Quest 3</li><li>VIVE Focus Vision</li></ul>
+                    <ul>
+                        <li>Meta Quest 3</li>
+                        <li>VIVE Focus Vision</li>
+                    </ul>
                 </div>
                 <div class="skill-group">
                     <h3>Systems</h3>
-                    <ul><li>Linux (Ubuntu)</li><li>Raspberry Pi 3</li></ul>
+                    <ul>
+                        <li>Linux (Ubuntu)</li>
+                        <li>Raspberry Pi 3</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -133,7 +154,8 @@
                 <div>
                     <h4>CS / Systems</h4>
                     <ul>
-                        <li>컴퓨터시스템 (A+)</li> <li>웹프로그래밍 (A0)</li>
+                        <li>컴퓨터시스템 (A+)</li>
+                        <li>웹프로그래밍 (A0)</li>
                         <li>프로그래밍언어 (A0)</li>
                         <li>파이썬프로그래밍 (A0)</li>
                         <li>Computational Thinking (A0)</li>
@@ -143,7 +165,10 @@
                 <div>
                     <h4>HCI / AI & Data</h4>
                     <ul>
-                        <li>HCI (A+)</li> <li>인공지능개론 (A0)</li> <li>딥러닝 (B+)</li> <li>디자인리서치 (B+)</li>
+                        <li>HCI (A+)</li>
+                        <li>인공지능개론 (A0)</li>
+                        <li>딥러닝 (B+)</li>
+                        <li>디자인리서치 (B+)</li>
                         <li>데이터마이닝 (B+)</li>
                     </ul>
                 </div>
@@ -151,10 +176,12 @@
                 <div>
                     <h4>Math & IE Core</h4>
                     <ul>
-                        <li>경제성평가론 (A0)</li> <li>선형대수학 (A0)</li>
+                        <li>경제성평가론 (A0)</li>
+                        <li>선형대수학 (A0)</li>
                         <li>공학수학 (A0)</li>
                         <li>미분적분학 (A0)</li>
-                        <li>경영과학 (B+)</li> </ul>
+                        <li>경영과학 (B+)</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -167,4 +194,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
